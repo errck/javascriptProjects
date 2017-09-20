@@ -6,11 +6,8 @@
 </head>
 
 <script language="javascript">
-
 var list = ['one','two', 'three','four','five','six','seven'];
-
 		
-
 var releaseDate;
 var runTime;
 var rating;
@@ -18,7 +15,7 @@ var cast;
 var director;
 var genre;
 var synopsis;
-	
+
 function displayInfo(a)
 	{
 		for (i = 0; i < a.length; i++) 
@@ -27,29 +24,38 @@ function displayInfo(a)
 			document.write(a[i] + "<br>");
 		}
 	}
-	
-while (releaseDate || runTime ||  rating || cast || director|| genre || synopsis != "quit")
-{
-	releaseDate = prompt("What was the movies release date?", "");
-	list[0] = releaseDate;
-	
-	runTime = prompt("What was the movies runtime?", "");
-	list[1] = runTime;
-	rating = prompt("What was the movies rating?", "");
-	list[2] = rating;
-	cast = prompt("Who were the movies cast?", "");
-	list[3] = cast;
-	director = prompt("Who was the movies director?", "");
-	list[4] = director;
-	genre = prompt("What is the genre?", "");
-	list[5] = genre;
-	synopsis = prompt("Synopis?", "");
-	list[6] = synopsis;
-	
-	displayInfo(list);
-	
-}
 
+for (i = 0; i < list.length; i++) 
+{
+releaseDate = prompt("What was the movies release date?", "");
+list[0] = releaseDate;
+runTime = prompt("What was the movies runtime?", "");
+list[1] = runTime;
+rating = prompt("What was the movies rating?", "");
+list[2] = rating;
+cast = prompt("Who were the movies cast?", "");
+list[3] = cast;
+director = prompt("Who was the movies director?", "");
+list[4] = director;
+genre = prompt("What is the genre?", "");
+list[5] = genre;
+synopsis = prompt("Synopis?", "");
+list[6] = synopsis;
+			
+		
+displayInfo(list);
+}
+		
+	
+
+
+	
+	/*If  (releaseDate == "quit" || runTime == "quit" ||  rating == "quit" || cast == "quit" || director == "quit" || genre == "quit" || synopsis == "quit")
+		{
+			 break;
+		}
+	*/
+	
 
 	
 </script>
@@ -57,3 +63,5 @@ while (releaseDate || runTime ||  rating || cast || director|| genre || synopsis
 <body>
 </body>
 </html>
+
+    
