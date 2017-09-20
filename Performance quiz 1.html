@@ -6,55 +6,94 @@
 </head>
 
 <script language="javascript">
-var list = ['one','two', 'three','four','five','six','seven'];
-		
-var releaseDate;
-var runTime;
-var rating;
-var cast;
-var director;
-var genre;
-var synopsis;
 
-function displayInfo(a)
-	{
-		for (i = 0; i < a.length; i++) 
-		{
-    		
-			document.write(a[i] + "<br>");
-		}
-	}
 
-for (i = 0; i < list.length; i++) 
+var maxMovies = 20;
+var list = new Array();
+
+for (i=0; i<maxMovies; i++) 
 {
-releaseDate = prompt("What was the movies release date?", "");
-list[0] = releaseDate;
-runTime = prompt("What was the movies runtime?", "");
-list[1] = runTime;
-rating = prompt("What was the movies rating?", "");
-list[2] = rating;
-cast = prompt("Who were the movies cast?", "");
-list[3] = cast;
-director = prompt("Who was the movies director?", "");
-list[4] = director;
-genre = prompt("What is the genre?", "");
-list[5] = genre;
-synopsis = prompt("Synopis?", "");
-list[6] = synopsis;
-			
-		
-displayInfo(list);
+ list[i]=new Array();
+
+var movie = prompt("What is movie called?", "");
+if (movie == "quit")
+{
+ displayInfo();
+ break;
 }
-		
+list[i][0]= "Movie Title: " + movie;
 	
+var releaseDate = prompt("What was the movies release date?", "");
+if (releaseDate == "quit")
+{
+ displayInfo();
+ break;
+}
+list[i][1]="Release Date: " + releaseDate;
 
+var runTime = prompt("What was the movies runtime?", "");
+if (runTime == "quit")
+{
+displayInfo();
+ break;
+}
+list[i][2] = "Run time: " + runTime;
+var rating = prompt("What was the movies rating?", "");
+if (rating == "quit")
+{
+ displayInfo();
+ break;
+}
+list[i][3] ="Rating: " + rating;
+var cast = prompt("Who were the movies cast?", "");
+if (cast == "quit")
+{
+ displayInfo();
+ break;
+}
+list[i][4] = "Cast: " + cast;
+var director = prompt("Who was the movies director?", "");
+if (director == "quit")
+{
+ displayInfo();
+ break; 
+}
+list[i][5] = "Director: " + director;
+var genre = prompt("What is the genre?", "");
+if (genre == "quit")
+{
+ displayInfo();
+ break;
+}
+list[i][6] ="Genre: " + genre;
+var synopsis = prompt("Synopis?", "");
+if (synopsis == "quit")
+{
+ displayInfo();
+ break; 
+}
+list[i][7] ="Synopsis: " + synopsis;	
+ 
+}
 
-	
-	/*If  (releaseDate == "quit" || runTime == "quit" ||  rating == "quit" || cast == "quit" || director == "quit" || genre == "quit" || synopsis == "quit")
+ 		
+function displayInfo()
+	{
+		for (i = 0; i < list.length; i++) 
 		{
-			 break;
+			document.write("Movie Number:# " + i + "<br>");
+    		for (e = 0; e < list[i].length; e++) 
+			{
+    		
+			
+			document.write( list[i][e] + "<br>");
+			}
+			document.write("<br>");
 		}
-	*/
+
+	}
+	
+
 	
 
 	
