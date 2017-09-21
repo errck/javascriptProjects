@@ -7,12 +7,14 @@
 
 <script language="javascript">
 
-
+//using Maxmovies as a way to define the loop interations
 var maxMovies = 20;
+//new array object
 var list = new Array();
-
+//loop to put info in each inner array
 for (i=0; i<maxMovies; i++) 
 {
+//this will make new arrays for each movie
  list[i]=new Array();
 
 var movie = prompt("What is movie called?", "");
@@ -76,24 +78,26 @@ list[i][7] ="Synopsis: " + synopsis;
  
 }
 
- 		
+ //this function will display the array		
 function displayInfo()
 	{
 		for (i = 0; i < list.length; i++) 
-		{
-			document.write("Movie Number:# " + i + "<br>");
+		{	//sorts the arrays before displaying them
+			list.sort();
     		for (e = 0; e < list[i].length; e++) 
 			{
     		
-			
+			document.write("Movie Number:# " + i + "<br>");
 			document.write( list[i][e] + "<br>");
 			}
 			document.write("<br>");
 		}
 
-	}
 	
-
+}
+	
+	
+//idk how i got it to work but perserverance is the key lol
 	
 
 	
