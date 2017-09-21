@@ -17,7 +17,7 @@ for (i=0; i<maxMovies; i++)
 //this will make new arrays for each movie
  list[i]=new Array();
 
-var movie = prompt("What is movie called?", "");
+var movie = prompt("What is the movie called?", "");
 if (movie == "quit")
 {
  displayInfo();
@@ -84,10 +84,10 @@ function displayInfo()
 		for (i = 0; i < list.length; i++) 
 		{	//sorts the arrays before displaying them
 			list.sort();
+			document.write("Movie Number:# " + (i + 1) + "<br>");
     		for (e = 0; e < list[i].length; e++) 
 			{
     		
-			document.write("Movie Number:# " + i + "<br>");
 			document.write( list[i][e] + "<br>");
 			}
 			document.write("<br>");
