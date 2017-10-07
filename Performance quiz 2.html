@@ -140,52 +140,99 @@ function display()
    this.shows = new Array();
 }
 
-display.prototype.addshows = function(bookingId, customerName, film, showDate) 
+display.prototype.addshows = function(venue, address, city, state, zip, date, time, price, phone, website, bands) 
 {
-   this.shows[bookingId] = new customerBooking(bookingId, customerName, film, showDate);
+   this.shows[venue] = new tourInfo(venue, address, city, state, zip, date, time, price, phone, website, bands);
 }
 
 
-display.prototype.getBookingsTable = function() 
+display.prototype.getShowsTable = function() 
 {
-  var booking;
-     var bookingsTableHTML = "<table border=1>";
+	 var b;
+     var showsTableHTML = "<table border=1>";
 
-     for (booking in this.bookings)
+     for (b in this.shows)
      {
-       bookingsTableHTML += "<tr><td>";
-	   bookingsTableHTML += this.bookings[booking].getBookingId();
-	   bookingsTableHTML += "</td>";
+       showsTableHTML += "<tr><td>Venue:  </td> <td>"
+	   showsTableHTML += this.shows[b].getVenue();
+	   showsTableHTML += "</td></tr>";
 	
-	   bookingsTableHTML += "<td>";
-	   bookingsTableHTML += this.bookings[booking].getCustomerName();
-	   bookingsTableHTML += "</td>";
+	   showsTableHTML += "<tr><td>Address:  </td> <td>"
+	   showsTableHTML += this.shows[b].getAddress();
+	   showsTableHTML += "</td></tr>";
 
-	   bookingsTableHTML += "<td>";
-	   bookingsTableHTML += this.bookings[booking].getFilm();
-	   bookingsTableHTML += "</td>";
+	   showsTableHTML += "<tr><td>City:  </td> <td>"
+	   showsTableHTML += this.shows[b].getCity();
+	   showsTableHTML += "</td></tr>";
 	   
-   	   bookingsTableHTML += "<td>";
-	   bookingsTableHTML += this.bookings[booking].getShowDate();
-	   bookingsTableHTML += "</td>";
-       bookingsTableHTML += "</tr>";
+   	   showsTableHTML += "<tr><td>State:  </td> <td>"
+	   showsTableHTML += this.shows[b].getState();
+	   showsTableHTML += "</td></tr>";
+     
+	   showsTableHTML += "<tr><td>Zip:  </td> <td>"
+	   showsTableHTML += this.shows[b].getZip();
+	   showsTableHTML += "</td></tr>";;
+    	   
+	   showsTableHTML += "<tr><td>Date:  </td> <td>"
+	   showsTableHTML += this.shows[b].getDate();
+	   showsTableHTML += "</td></tr>";
+
+	   showsTableHTML += "<tr><td>Time:  </td> <td>"
+	   showsTableHTML += this.shows[b].getTime();
+	   showsTableHTML += "</td></tr>";
+	
+	   showsTableHTML += "<tr><td>Price:  </td> <td>"
+	   showsTableHTML += this.shows[b].getPrice();
+	   showsTableHTML += "</td></tr>";
+   		 
+	   showsTableHTML += "<tr><td>Phone:  </td> <td>"
+	   showsTableHTML += this.shows[b].getPhone();
+	   showsTableHTML += "</td></tr>";
+    	 
+	   showsTableHTML += "<tr><td>Website:  </td> <td>"
+	   showsTableHTML += this.shows[b].getWebsite();
+	   showsTableHTML += "</td></tr>";
+	   
+	   showsTableHTML += "<tr><td>Guest Performaces:    </td> <td>"
+	   showsTableHTML += this.shows[b].getBands();
+	   showsTableHTML += "</td></tr>";
+    
      }
-       bookingsTableHTML += "</table>";
-     return bookingsTableHTML;
+       showsTableHTML += "</table>";
+	   showsTableHTML += "<br>";
+     return showsTableHTML;
 }
 
-var londonOdeon = new cinema();
+
+var maxInput= 3;
+for (i=0; i<maxInput; i++) 
+{
+
+document.write("Show #" + (i+1));
+var fallShows= new display();
+var ven = prompt("Input Venue", "");
+var addr = prompt("Input Address", "");
+var cit = prompt("Input City", "");
+var stat = prompt("Input State", "");
+var zi = prompt("Input Zip", "");
+var dat = prompt("Input Date", "");
+var tim = prompt("Input Time", "");
+var pri = prompt("Input Price", "");
+var pho = prompt("Input Phone", "");
+var web = prompt("Input Website", "");
+var ban = prompt("Input additonal Bands", "");
+
+
+fallShows.addshows(ven, addr, cit, stat, zi, dat, tim, pri, pho, web, ban);
+
+document.write(fallShows.getShowsTable());
+
+}
 
 
 
-londonOdeon.addBooking(342, "Arnold Palmer","Toy Story", "15 July 2004 20:15");
-londonOdeon.addBooking(335, "Louise Anderson","The Shawshank Redemption", "27 July 2004 11:25");
-londonOdeon.addBooking(566, "Catherine Hughes","Never Say Never", "27 July 2004 17:55");
-londonOdeon.addBooking(324, "Rob Gordon","Shrek", "29 July 2004 20:15");
 
 
-
-document.write(londonOdeon.getBookingsTable());
 
 </script>
 
