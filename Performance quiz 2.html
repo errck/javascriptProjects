@@ -1,0 +1,193 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+<body>
+<script language="javascript">
+
+// tourInfo class
+
+function tourInfo(venue, address, city, state, zip, date, time, price, phone, website, bands)
+{
+  this.venue = venue;
+  this.address = address;
+  this.city = city;
+  this.state = state;
+  this.zip = zip;
+  this.date = date;
+  this.time = time;
+  this.price = price;
+  this.phone = phone;
+  this.website = website;
+  this.bands = bands;
+}
+
+tourInfo.prototype.getVenue = function()
+{
+	return this.venue;
+}
+
+tourInfo.prototype.setVenue = function(venue)
+{
+	this.customerName = venue;
+}
+
+tourInfo.prototype.getAddress= function()
+{
+	return this.address;
+}
+
+tourInfo.prototype.setAddress = function(address)
+{
+	this.showDate = address;
+}
+
+tourInfo.prototype.getCity = function()
+{
+	return this.city;
+}
+
+tourInfo.prototype.setCity= function(city)
+{
+	this.city = city;
+}
+
+tourInfo.prototype.getState = function()
+{
+	return this.state;
+}
+
+tourInfo.prototype.setState = function(state)
+{
+	this.state = state;
+}
+
+tourInfo.prototype.getZip = function()
+{
+	return this.zip;
+}
+
+tourInfo.prototype.setZip = function(zip)
+{
+	this.zip = zip;
+}
+
+tourInfo.prototype.getDate= function()
+{
+	return this.date;
+}
+
+tourInfo.prototype.setDate= function(date)
+{
+	this.date= date;
+}
+
+tourInfo.prototype.getTime = function()
+{
+	return this.time;
+}
+
+tourInfo.prototype.setTime = function(state)
+{
+	this.time = time;
+}
+
+tourInfo.prototype.getPrice = function()
+{
+	return this.price;
+}
+
+tourInfo.prototype.setPrice = function(price)
+{
+	this.price = price;
+}
+   
+tourInfo.prototype.getPhone = function()
+{
+	return this.phone;
+}
+
+tourInfo.prototype.setPhone = function(phone)
+{
+	this.phone= phone;
+}
+
+tourInfo.prototype.getWebsite = function()
+{
+	return this.website;
+}
+
+tourInfo.prototype.setWebsite = function(website)
+{
+	this.website = website;
+}
+
+tourInfo.prototype.getBands= function()
+{
+	return this.bands;
+}
+
+tourInfo.prototype.setBands= function(bands)
+{
+	this.bands = bands;
+}
+//  shows class
+
+function display() 
+{
+   this.shows = new Array();
+}
+
+display.prototype.addshows = function(bookingId, customerName, film, showDate) 
+{
+   this.shows[bookingId] = new customerBooking(bookingId, customerName, film, showDate);
+}
+
+
+display.prototype.getBookingsTable = function() 
+{
+  var booking;
+     var bookingsTableHTML = "<table border=1>";
+
+     for (booking in this.bookings)
+     {
+       bookingsTableHTML += "<tr><td>";
+	   bookingsTableHTML += this.bookings[booking].getBookingId();
+	   bookingsTableHTML += "</td>";
+	
+	   bookingsTableHTML += "<td>";
+	   bookingsTableHTML += this.bookings[booking].getCustomerName();
+	   bookingsTableHTML += "</td>";
+
+	   bookingsTableHTML += "<td>";
+	   bookingsTableHTML += this.bookings[booking].getFilm();
+	   bookingsTableHTML += "</td>";
+	   
+   	   bookingsTableHTML += "<td>";
+	   bookingsTableHTML += this.bookings[booking].getShowDate();
+	   bookingsTableHTML += "</td>";
+       bookingsTableHTML += "</tr>";
+     }
+       bookingsTableHTML += "</table>";
+     return bookingsTableHTML;
+}
+
+var londonOdeon = new cinema();
+
+
+
+londonOdeon.addBooking(342, "Arnold Palmer","Toy Story", "15 July 2004 20:15");
+londonOdeon.addBooking(335, "Louise Anderson","The Shawshank Redemption", "27 July 2004 11:25");
+londonOdeon.addBooking(566, "Catherine Hughes","Never Say Never", "27 July 2004 17:55");
+londonOdeon.addBooking(324, "Rob Gordon","Shrek", "29 July 2004 20:15");
+
+
+
+document.write(londonOdeon.getBookingsTable());
+
+</script>
+
+</body>
+</html>
