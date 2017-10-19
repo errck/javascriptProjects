@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+
+<script language="javascript">
+	
+//set up function to ask user for name and then set the 
+//window status to their name
+function askName()
+{
+var name = prompt("What is your name?", "");
+window.status = name;
+
+}
+
+
+// this function will display an alert depending on the image the user clicks on
+function imgInfo(num)
+{
+// make a new array with all of the descriptions for each image
+var images = new Array("This is a Blue 05-06 Acura RSX Type S","This is a black 05-06 Acura Aspec Type S","This is a black 1999 Mazda RX7","This is a 1998 R34 Nissan GTR AKA Godzilla","This is a 1998 Toyota Supra \"myfavorite\"","This is a white 1986 BMW E30", "This is a gold 2015 R35 Nissan GTR","This is a 1976 Nissan Datun 240z","This is a 2015 Toyota gt86", "This is a funny looking Pug");
+//  set up a case condition for each image a user may pick
+switch (num)
+{
+	case 0:
+ 		alert(images[0]);
+		break;
+	case 1:
+ 		alert(images[1]);
+		break;
+	case 2:
+ 		alert(images[2]);
+		break;
+	case 3:
+ 		alert(images[3]);
+		break;
+	case 4:
+ 		alert(images[4]);
+		break;
+	case 5:
+ 		alert(images[5]);
+		break;
+	case 6:
+ 		alert(images[6]);
+		break;
+	case 7:
+ 		alert(images[7]);
+		break;
+	case 8:
+ 		alert(images[8]);
+		break;
+	case 9:
+ 		alert(images[9]);
+		break;
+}
+}
+</script>
+</head>
+<!--set up event to trigger askName function-->
+<body onload="askName()">
+<!--set up all the html images and set each with different agrument in the imginfo() fuction-->
+<img onclick="imgInfo(0)" border="0" src="bluersx.jpg" alt="blue rsx" width="240" height="150">
+<img onclick="imgInfo(1)" border="0" src="blackaspec.jpg" alt="black rsx" width="270" height="150">
+<img onclick="imgInfo(2)" border="0" src="blackrx7.jpg" alt="black rx7" width="200" height="150">
+<img onclick="imgInfo(3)" border="0" src="whiteGTR.jpg" alt="white GTR" width="200" height="150">
+<img onclick="imgInfo(4)" border="0" src="whitesupra.jpg" alt="white supra" width="200" height="150">
+<img onclick="imgInfo(5)" border="0" src="e30.jpg" alt="bmw e30" width="200" height="150">
+<img onclick="imgInfo(6)" border="0" src="goldGTR.jpg" alt="gold GTR" width="200" height="150">
+<img onclick="imgInfo(7)" border="0" src="datsun240.jpg" alt="blue datsun" width="200" height="150">
+<img onclick="imgInfo(8)" border="0" src="toyotagt86.jpg" alt="gray gt86" width="200" height="150">
+<img onclick="imgInfo(9)" border="0" src="pug.jpg" alt="blue" width="200" height="150">
+
+
+</body>
+</html>
