@@ -1,0 +1,165 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+	
+<body>
+<!--This form holds all of the buttons for the calculator-->
+<form name="form1">
+<input type="text" id="textbox1">
+<br>
+<br>
+<input type="button" value="7" onClick="btn7()">
+<input type="button" value="8" onClick="btn8()">
+<input type="button" value="9" onClick="btn9()">
+<br>
+<input type="button" value="6" onClick="btn6()">
+<input type="button" value="5" onClick="btn5()">
+<input type="button" value="4" onClick="btn4()">
+<br>
+<input type="button" value="3" onClick="btn3()">
+<input type="button" value="2" onClick="btn2()">
+<input type="button" value="1" onClick="btn1()">
+<br>
+<input type="button" value="0" onClick="btn0()">
+<input type="button" value="." onClick="btnDot()">
+<br>
+<input type="button" value="+" onClick="btnPlus()">
+<input type="button" value="-" onClick="btnMinus()">
+<input type="button" value="*" onClick="btnMult()">
+<input type="button" value="/" onClick="btnDiv()">
+<br>
+<input type="button" value="=" onClick="btnEqual()">
+<input type="button" value="CLEAR" onClick="btnClear()">
+
+
+</form>
+<script language="javascript">
+// this function will add the character 7 to the text box
+function btn7()
+{
+
+	document.form1.textbox1.value = document.form1.textbox1.value + "7";
+	
+}
+// this function will add the character 8 to the text box
+function btn8()
+{
+	
+	document.form1.textbox1.value = document.form1.textbox1.value +  "8";
+	
+}
+// this function will add the character 9 to the text box
+function btn9()
+{
+	
+	document.form1.textbox1.value = document.form1.textbox1.value +  "9";
+	
+}
+// this function will add the character 6 to the text box
+function btn6()
+{
+	
+	document.form1.textbox1.value = document.form1.textbox1.value +  "6";
+	
+}
+// this function will add the character 5 to the text box
+function btn5()
+{
+	
+	document.form1.textbox1.value = document.form1.textbox1.value +  "5";
+	
+}
+// this function will add the character 4 to the text box
+function btn4()
+{
+	
+	document.form1.textbox1.value = document.form1.textbox1.value +  "4";
+	
+}
+// this function will add the character 3 to the text box
+function btn3()
+{
+	
+	document.form1.textbox1.value = document.form1.textbox1.value +  "3";
+	
+}
+// this function will add the character 2 to the text box
+function btn2()
+{
+	
+	document.form1.textbox1.value = document.form1.textbox1.value +  "2";
+	
+}
+// this function will add the character 1 to the text box
+function btn1()
+{
+	
+	document.form1.textbox1.value = document.form1.textbox1.value +  "1";
+	
+}
+// this function will add the character 0 to the text box	
+function btn0()
+{
+	
+	document.form1.textbox1.value = document.form1.textbox1.value +  "0";
+	
+}
+// this function will add the character . to the text box
+function btnDot()
+{
+	
+	document.form1.textbox1.value = document.form1.textbox1.value +  ".";
+	
+}
+// this function will add the character + to the text box
+function btnPlus()
+{
+	
+	document.form1.textbox1.value = document.form1.textbox1.value + " " + "+";
+	
+}
+// this function will add the character - to the text box
+function btnMinus()
+{
+	
+	document.form1.textbox1.value = document.form1.textbox1.value + " " + "-";
+	
+}
+// this function will add the character * to the text box
+function btnMult()
+{
+	
+	document.form1.textbox1.value = document.form1.textbox1.value + " " + "*";
+	
+}
+// this function will add the character /  to the text box
+function btnDiv()
+{
+	
+	document.form1.textbox1.value = document.form1.textbox1.value + " " + "/";
+	
+}
+// this function does the actual math 
+function btnEqual()
+{
+	//this variable will hold the value of the arithmetic that was done
+	var math = eval(document.form1.textbox1.value); //the eval function takes the string and does the arthmitic
+	// this will display the value to the textbox
+	document.form1.textbox1.value = math;
+	
+	
+}
+// this function will clear any text in the textbox
+function btnClear()
+{
+	
+	document.form1.textbox1.value = "";
+	
+}
+</script>
+		
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+
+<script language="javascript">
+// this function will set set the radio button to whichever was selected in the list	
+function framesFunc()
+	{
+	// here i set this variable to the value that was selected in the list
+	var strUser = document.getElementById("listId").value;
+	//this if statement display the chouice that was made by the user and check the corresponding radio button on the //other html file
+	if(strUser == "0")
+	{
+		window.alert("choice1");
+		//here i access the the other file and set the checked status to true for radio 1
+		window.parent.contentFrame.form1.rad[0].checked=true;
+	}
+	else if(strUser == "1")
+	{
+		window.alert("Choice 2");
+		//here i access the the other file and set the checked status to true for radio 2
+		window.parent.contentFrame.form1.rad[1].checked=true;
+	}
+	else if(strUser == "2")
+	{
+		window.alert("Choice 3");
+		//here i access the the other file and set the checked status to true for radio 3
+		window.parent.contentFrame.form1.rad[2].checked=true;
+	}
+	else if(strUser == "3")
+	{
+		window.alert("Choice 4");
+		//here i access the the other file and set the checked status to true for radio 4
+		window.parent.contentFrame.form1.rad[3].checked=true;
+	}
+	else if(strUser == "4")
+	{
+		window.alert("Choice 5");
+		//here i access the the other file and set the checked status to true for radio 5
+		window.parent.contentFrame.form1.rad[4].checked=true;
+	}
+	}
+</script>
+</head>
+
+<body>
+	<!--here is the form for the dropdown list i set the id and name so that i can access it in another file-->
+<form name="form1">
+  <select id="listId" name="list1">
+    <option value="0">Radio 1</option>
+    <option value="1">Radio 2</option>
+    <option value="2">Radio 3</option>
+    <option value="3">Radio 4</option>
+	<option value="4">Radio 5</option>
+  </select>
+<!-- clicking on the submit button will launch the event and functin framesfunc()-->
+ <input type="submit" onClick="framesFunc();">
+</form>
+</body>
+</html>
