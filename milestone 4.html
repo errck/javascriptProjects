@@ -45,67 +45,141 @@ htmlcode = htmlcode + '<input type="radio" id="name1" name="q' + quesCounter + '
 htmlcode = htmlcode + '<input type="submit" value="Submit" onclick="showResult(1 , document.form1.q1.value);">';
 htmlcode = htmlcode + '</form>';*/
 
-function displayQuestion(n)
+function displayQuestSet1(n)
 {
 var arrayCounter= n ;
 var quesCounter= n +1 ;
-var htmlcode = '<form name="form'+ quesCounter +'">';
+var htmlcode = '<form name="form1">';
 htmlcode = htmlcode + '<b>Question '+ quesCounter+ ':' + questions[arrayCounter][0] + '</b><br>';
-htmlcode = htmlcode + '<input type="radio" id="name1" name="q1" value="A">' + questions[arrayCounter][1] + '<br>';
-htmlcode = htmlcode + '<input type="radio" id="name1" name="q1" value="B">' + questions[arrayCounter][2] + '<br>';
-htmlcode = htmlcode + '<input type="radio" id="name1" name="q1" value="C">' + questions[arrayCounter][3] + '<br>';
-htmlcode = htmlcode + '<input type="radio" id="name1" name="q1" value="D">' + questions[arrayCounter][4] + '<br>';
-htmlcode = htmlcode + '<input type="submit" value="Submit" onclick="showResult(' + quesCounter + ', document.form1.q1.value);">';
-htmlcode = htmlcode + '</form>';
+htmlcode = htmlcode + '<input type="radio" id="name1" name="q'+ quesCounter+ '" value="A">' + questions[arrayCounter][1] + '<br>';
+htmlcode = htmlcode + '<input type="radio" id="name1" name="q'+ quesCounter+ '" value="B">' + questions[arrayCounter][2] + '<br>';
+htmlcode = htmlcode + '<input type="radio" id="name1" name="q'+ quesCounter+ '" value="C">' + questions[arrayCounter][3] + '<br>';
+htmlcode = htmlcode + '<input type="radio" id="name1" name="q'+ quesCounter+ '" value="D">' + questions[arrayCounter][4] + '<br>';
 
-document.write(htmlcode);
+return htmlcode;
 }
 
-function showResult(questionNum, userAnswer)
+function checkQuesSet1(n)
 {
-if (questionNum == 1)
-{
- 	if (userAnswer == answers[0])
+	//var question1 = document.form1.q1.value;
+//	var question2 = document.form1.q2.value;
+//	var question3 = document.form1.q3.value;
+	window.alert(n);
+	var correct = 0;
+
+	if (n == 1 && document.form1.q1.value == answers[0]) 
 	{
- 		window.alert("Question 1: The question is right");
+	
+			correct++;
+		window.alert("You got:  " + correct+   " out of 1 right!");
 	}
-	 else
-	 {
-		 window.alert("Question 1: The question is wrong");
-	 }
-}
- else if (questionNum == 2)
-{
-	if(userAnswer == answers[1])
+	else if (n == 1 && document.form1.q1.value != answers[0])
 	{
- 		window.alert("Question 2: The question is right");
+		window.alert("You got:  " + correct+   " out of 1 right!");
 	}
-	 else
-	 {
-		window.alert("Question 2: The question is wrong");
-	 }
-}
-
- else if (questionNum == 3)
-{
-	if(userAnswer == answers[2])
+	if (n == 2) 
 	{
- 		window.alert("Question 3: The question is right");
+		if (document.form1.q1.value == answers[0])
+		{
+			window.alert("Question 1 is right");
+			correct++;
+		}
+		else if(document.form1.q1.value != answers[0])
+		{
+			window.alert("Question 1 is wrong");
+		}
+		if (document.form1.q2.value == answers[1])
+		{
+			window.alert("Question 2 is right");
+			correct++;
+		}
+		else if(document.form1.q2.value != answers[1])
+		{
+			window.alert("Question 2 is wrong");
+		}
+		window.alert("You got:  " + correct+   " out of 2 right!");
 	}
-	 else
-	 {
-		window.alert("Question 3: The question is wrong");
-	 }
+	if (n == 3)
+	{
+		if (document.form1.q1.value == answers[0])
+		{
+			window.alert("Question 1 is right");
+			correct++;
+		}
+		else if(document.form1.q1.value != answers[0])
+		{
+			window.alert("Question 1 is wrong");
+		}
+		if (document.form1.q2.value == answers[1])
+		{
+			window.alert("Question 2 is right");
+			correct++;
+		}
+		else if(document.form1.q2.value != answers[1])
+		{
+			window.alert("Question 2 is wrong");
+		}
+		if (document.form1.q3.value == answers[2])
+		{
+			window.alert("Question 3 is right");
+			correct++;
+		}
+		else if(document.form1.q2.value != answers[2])
+		{
+			window.alert("Question 4 is wrong");
+		}
+		window.alert("You got:  " + correct+   " out of 3 right!");
+	}
+
+}
+
+
+
+function setQuestAmount(am) {
+
+var amountOfquestion = am;
+
+if (amountOfquestion == "1")
+{
+	document.write(displayQuestSet1(0));
+}
+else if (amountOfquestion == "2")
+ {
+	document.write(displayQuestSet1(0));
+	document.write(displayQuestSet1(1));
+}
+else if (amountOfquestion == "3") {
+	document.write(displayQuestSet1(0));
+	document.write(displayQuestSet1(1));
+	document.write(displayQuestSet1(2));
 }
 }
 
-displayQuestion(0);
-displayQuestion(1);
-displayQuestion(2);
 
 
+function displayQuesLoop(n)
+{
+var htmlSubmit;
+ for (i = 0; i < n.length; i++) 
+ {
+    setQuestAmount(n);
+} 
+htmlSubmit ='<input type="submit" value="Submit" onClick="checkQuesSet1('+ n+');">';
+htmlSubmit= htmlSubmit + '</form>';
+document.write(htmlSubmit);
+}
+	
 </script>
 
 <body>
+	<p>Select the Amount of Questions: </p>
+	<form name="quizForm">
+	<select name="questList">
+		<option value="1">1</option>
+ 		<option value="2">2</option>
+  		<option value="3">3</option>
+		<input type="submit" onClick="displayQuesLoop(document.quizForm.questList.value);">
+	</select>
+	</form>
 </body>
 </html>
