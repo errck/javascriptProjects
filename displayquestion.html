@@ -1,0 +1,155 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+<script language="javascript">
+var questions = new Array(); // new array object for questions
+
+questions[0]= new Array(); //make array into multi demonsional array
+questions[0][0]= "Who is Green";
+questions[0][1]= "The Hulk";
+questions[0][2]= "The flash";
+questions[0][3]= "Spiderman";
+questions[0][4]= "Aquaman";
+
+questions[1] = new Array();
+questions[1][0] = "Who is half man half spider";
+questions[1][1] = "The Hulk";
+questions[1][2] = "The Flash";
+questions[1][3] = "Spiderman";
+questions[1][4] = "Aquaman";
+
+questions[2] = new Array();
+questions[2][0] = "Who can speak to Fishes";
+questions[2][1] = "The Hulk";
+questions[2][2] = "The Flash";
+questions[2][3] = "Spiderman";
+questions[2][4] = "Aquaman";
+
+var answers = new Array(); // new array object for answers
+answers[0]="A";
+answers[1]="C";
+answers[2]="D";
+/*
+var arrayCounter=0;
+var quesCounter=1;
+
+var htmlcode = '<form name="form'+ quesCounter +'">';
+htmlcode = htmlcode + '<b>Question '+ quesCounter+ ':' + questions[arrayCounter][0] + '</b><br>';
+htmlcode = htmlcode + '<input type="radio" id="name1" name="q' + quesCounter + '" value="A">' + questions[arrayCounter][1] + '<br>';
+htmlcode = htmlcode + '<input type="radio" id="name1" name="q' + quesCounter + '" value="A">' + questions[arrayCounter][2] + '<br>';
+htmlcode = htmlcode + '<input type="radio" id="name1" name="q' + quesCounter + '" value="A">' + questions[arrayCounter][3] + '<br>';
+htmlcode = htmlcode + '<input type="radio" id="name1" name="q' + quesCounter + '" value="A">' + questions[arrayCounter][4] + '<br>';
+htmlcode = htmlcode + '<input type="submit" value="Submit" onclick="showResult(1 , document.form1.q1.value);">';
+htmlcode = htmlcode + '</form>';*/
+
+function displayQuestSet1(n)
+{
+var arrayCounter= n ;
+var quesCounter= n +1 ;
+var htmlcode = '<form name="form1">';
+htmlcode = htmlcode + '<b>Question '+ quesCounter+ ':' + questions[arrayCounter][0] + '</b><br>';
+htmlcode = htmlcode + '<input type="radio" id="name1" name="q'+ quesCounter+ '" value="A">' + questions[arrayCounter][1] + '<br>';
+htmlcode = htmlcode + '<input type="radio" id="name1" name="q'+ quesCounter+ '" value="B">' + questions[arrayCounter][2] + '<br>';
+htmlcode = htmlcode + '<input type="radio" id="name1" name="q'+ quesCounter+ '" value="C">' + questions[arrayCounter][3] + '<br>';
+htmlcode = htmlcode + '<input type="radio" id="name1" name="q'+ quesCounter+ '" value="D">' + questions[arrayCounter][4] + '<br>';
+
+return htmlcode;
+}
+
+function checkQuesSet1(n)
+{
+	//var question1 = document.form1.q1.value;
+//	var question2 = document.form1.q2.value;
+//	var question3 = document.form1.q3.value;
+	window.alert(n);
+	var correct = 0;
+
+	if (n == 1 && document.form1.q1.value == answers[0]) 
+	{
+	
+			correct++;
+		window.alert("You got:  " + correct+   " out of 1 right!");
+	}
+	else if (n == 1 && document.form1.q1.value != answers[0])
+	{
+		window.alert("You got:  " + correct+   " out of 1 right!");
+	}
+	if (n ==2) 
+	{
+		window.alert("it should work");
+		if (document.form1.q1.value == answers[0])
+		{
+			window.alert("Question 1 is right");
+			correct++;
+		}
+		if (document.form1.q2.value == answers[1])
+		{
+			window.alert("Question 2 is right");
+			correct++;
+		}
+		window.alert("You got:  " + correct+   " out of 2 right!");
+	}
+	if (n == 3)
+	{
+		if (document.form1.q1.value == answers[0] && document.form1.q2.value == answers[1] && document.form1.q3.value == answers[2]) 
+		{
+		correct++;
+		correct++;
+		}	
+	}
+
+}
+
+
+
+function setQuestAmount(am) {
+
+var amountOfquestion = am;
+
+if (amountOfquestion == "1")
+{
+	document.write(displayQuestSet1(0));
+}
+else if (amountOfquestion == "2")
+ {
+	document.write(displayQuestSet1(0));
+	document.write(displayQuestSet1(1));
+}
+else if (amountOfquestion == "3") {
+	document.write(displayQuestSet1(0));
+	document.write(displayQuestSet1(1));
+	document.write(displayQuestSet1(2));
+}
+}
+
+
+
+function displayQuesLoop(n)
+{
+var htmlSubmit;
+ for (i = 0; i < n.length; i++) 
+ {
+    setQuestAmount(n);
+} 
+htmlSubmit ='<input type="submit" value="Submit" onClick="checkQuesSet1('+ n+');">';
+htmlSubmit= htmlSubmit + '</form>';
+document.write(htmlSubmit);
+}
+	
+</script>
+
+<body>
+	<p>Select the Amount of Questions: </p>
+	<form name="quizForm">
+	<select name="questList">
+		<option value="1">1</option>
+ 		<option value="2">2</option>
+  		<option value="3">3</option>
+		<input type="submit" onClick="displayQuesLoop(document.quizForm.questList.value);">
+	</select>
+	</form>
+</body>
+</html>
