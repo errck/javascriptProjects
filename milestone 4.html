@@ -28,26 +28,22 @@ questions[2][2] = "The Flash";
 questions[2][3] = "Spiderman";
 questions[2][4] = "Aquaman";
 
+questions[3] = new Array();
+questions[3][0] = "Super man's weakness is ____";
+
+
 var answers = new Array(); // new array object for answers
 answers[0]="A";
 answers[1]="C";
 answers[2]="D";
-/*
-var arrayCounter=0;
-var quesCounter=1;
+answers[3]="Kryptonite"
 
-var htmlcode = '<form name="form'+ quesCounter +'">';
-htmlcode = htmlcode + '<b>Question '+ quesCounter+ ':' + questions[arrayCounter][0] + '</b><br>';
-htmlcode = htmlcode + '<input type="radio" id="name1" name="q' + quesCounter + '" value="A">' + questions[arrayCounter][1] + '<br>';
-htmlcode = htmlcode + '<input type="radio" id="name1" name="q' + quesCounter + '" value="A">' + questions[arrayCounter][2] + '<br>';
-htmlcode = htmlcode + '<input type="radio" id="name1" name="q' + quesCounter + '" value="A">' + questions[arrayCounter][3] + '<br>';
-htmlcode = htmlcode + '<input type="radio" id="name1" name="q' + quesCounter + '" value="A">' + questions[arrayCounter][4] + '<br>';
-htmlcode = htmlcode + '<input type="submit" value="Submit" onclick="showResult(1 , document.form1.q1.value);">';
-htmlcode = htmlcode + '</form>';*/
-
+//this function will set the html question 
 function displayQuestSet1(n)
 {
+// ths variable will set which question array to display
 var arrayCounter= n ;
+// this variable will change the name of each set of answers to make it possible to distingush each queston set
 var quesCounter= n +1 ;
 var htmlcode = '<form name="form1">';
 htmlcode = htmlcode + '<b>Question '+ quesCounter+ ':' + questions[arrayCounter][0] + '</b><br>';
@@ -58,15 +54,24 @@ htmlcode = htmlcode + '<input type="radio" id="name1" name="q'+ quesCounter+ '" 
 
 return htmlcode;
 }
+	
+//this function will set the html question 
+function displayQuestSet2()
+{
 
+var htmlcode = '<form name="form1">';
+htmlcode = htmlcode + '<b>Question '+ 4 + ':' + questions[4][0] + '</b><br>';
+
+
+return htmlcode;
+}
+
+// this function will check to see if the answers are right 
 function checkQuesSet1(n)
 {
-	//var question1 = document.form1.q1.value;
-//	var question2 = document.form1.q2.value;
-//	var question3 = document.form1.q3.value;
-	window.alert(n);
+	//this variable will hold the ammount of correct answers
 	var correct = 0;
-
+	//these if statements will chechk how many questions were answered and check if they got the questions right
 	if (n == 1 && document.form1.q1.value == answers[0]) 
 	{
 	
@@ -77,6 +82,7 @@ function checkQuesSet1(n)
 	{
 		window.alert("You got:  " + correct+   " out of 1 right!");
 	}
+	// if two questions were asked
 	if (n == 2) 
 	{
 		if (document.form1.q1.value == answers[0])
@@ -99,6 +105,7 @@ function checkQuesSet1(n)
 		}
 		window.alert("You got:  " + correct+   " out of 2 right!");
 	}
+	//if three questions were asked
 	if (n == 3)
 	{
 		if (document.form1.q1.value == answers[0])
@@ -126,7 +133,7 @@ function checkQuesSet1(n)
 		}
 		else if(document.form1.q2.value != answers[2])
 		{
-			window.alert("Question 4 is wrong");
+			window.alert("Question 3 is wrong");
 		}
 		window.alert("You got:  " + correct+   " out of 3 right!");
 	}
@@ -134,7 +141,7 @@ function checkQuesSet1(n)
 }
 
 
-
+// this functions will write html code for each qeustion depending on how many questions were asked
 function setQuestAmount(am) {
 
 var amountOfquestion = am;
@@ -156,7 +163,7 @@ else if (amountOfquestion == "3") {
 }
 
 
-
+// this function will call the function to write each question and write the submit button at the end of the html code
 function displayQuesLoop(n)
 {
 var htmlSubmit;
