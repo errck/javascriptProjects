@@ -1,0 +1,192 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+<script language="javascript">
+var questions = new Array(); // new array object for questions
+
+questions[0]= new Array(); //make array into multi demonsional array
+questions[0][0]= "Who is Green";
+questions[0][1]= "The Hulk";
+questions[0][2]= "The flash";
+questions[0][3]= "Spiderman";
+questions[0][4]= "Aquaman";
+
+questions[1] = new Array();
+questions[1][0] = "Who is half man half spider";
+questions[1][1] = "The Hulk";
+questions[1][2] = "The Flash";
+questions[1][3] = "Spiderman";
+questions[1][4] = "Aquaman";
+
+questions[2] = new Array();
+questions[2][0] = "Who can speak to Fishes";
+questions[2][1] = "The Hulk";
+questions[2][2] = "The Flash";
+questions[2][3] = "Spiderman";
+questions[2][4] = "Aquaman";
+
+questions[3] = new Array();
+questions[3][0] = "Super man's weakness is ____";
+
+
+var answers = new Array(); // new array object for answers
+answers[0]="A";
+answers[1]="C";
+answers[2]="D";
+answers[3]="Kryptonite"
+
+//this function will set the html question 
+function displayQuestSet1(n)
+{
+// ths variable will set which question array to display
+var arrayCounter= n ;
+// this variable will change the name of each set of answers to make it possible to distingush each queston set
+var quesCounter= n +1 ;
+var htmlcode = '<form name="form1">';
+htmlcode = htmlcode + '<b>Question '+ quesCounter+ ':' + questions[arrayCounter][0] + '</b><br>';
+htmlcode = htmlcode + '<input type="radio" id="name1" name="q'+ quesCounter+ '" value="A">' + questions[arrayCounter][1] + '<br>';
+htmlcode = htmlcode + '<input type="radio" id="name1" name="q'+ quesCounter+ '" value="B">' + questions[arrayCounter][2] + '<br>';
+htmlcode = htmlcode + '<input type="radio" id="name1" name="q'+ quesCounter+ '" value="C">' + questions[arrayCounter][3] + '<br>';
+htmlcode = htmlcode + '<input type="radio" id="name1" name="q'+ quesCounter+ '" value="D">' + questions[arrayCounter][4] + '<br>';
+
+return htmlcode;
+}
+	
+//this function will set the html question 
+function displayQuestSet2()
+{
+
+var htmlcode = '<form name="form1">';
+htmlcode = htmlcode + '<b>Question '+ 4 + ':' + questions[4][0] + '</b><br>';
+
+
+return htmlcode;
+}
+
+// this function will check to see if the answers are right 
+function checkQuesSet1(n)
+{
+	//this variable will hold the ammount of correct answers
+	var correct = 0;
+	//these if statements will chechk how many questions were answered and check if they got the questions right
+	if (n == 1 && document.form1.q1.value == answers[0]) 
+	{
+	
+			correct++;
+		window.alert("You got:  " + correct+   " out of 1 right!");
+	}
+	else if (n == 1 && document.form1.q1.value != answers[0])
+	{
+		window.alert("You got:  " + correct+   " out of 1 right!");
+	}
+	// if two questions were asked
+	if (n == 2) 
+	{
+		if (document.form1.q1.value == answers[0])
+		{
+			window.alert("Question 1 is right");
+			correct++;
+		}
+		else if(document.form1.q1.value != answers[0])
+		{
+			window.alert("Question 1 is wrong");
+		}
+		if (document.form1.q2.value == answers[1])
+		{
+			window.alert("Question 2 is right");
+			correct++;
+		}
+		else if(document.form1.q2.value != answers[1])
+		{
+			window.alert("Question 2 is wrong");
+		}
+		window.alert("You got:  " + correct+   " out of 2 right!");
+	}
+	//if three questions were asked
+	if (n == 3)
+	{
+		if (document.form1.q1.value == answers[0])
+		{
+			window.alert("Question 1 is right");
+			correct++;
+		}
+		else if(document.form1.q1.value != answers[0])
+		{
+			window.alert("Question 1 is wrong");
+		}
+		if (document.form1.q2.value == answers[1])
+		{
+			window.alert("Question 2 is right");
+			correct++;
+		}
+		else if(document.form1.q2.value != answers[1])
+		{
+			window.alert("Question 2 is wrong");
+		}
+		if (document.form1.q3.value == answers[2])
+		{
+			window.alert("Question 3 is right");
+			correct++;
+		}
+		else if(document.form1.q2.value != answers[2])
+		{
+			window.alert("Question 3 is wrong");
+		}
+		window.alert("You got:  " + correct+   " out of 3 right!");
+	}
+
+}
+
+
+// this functions will write html code for each qeustion depending on how many questions were asked
+function setQuestAmount(am) {
+
+var amountOfquestion = am;
+
+if (amountOfquestion == "1")
+{
+	document.write(displayQuestSet1(0));
+}
+else if (amountOfquestion == "2")
+ {
+	document.write(displayQuestSet1(0));
+	document.write(displayQuestSet1(1));
+}
+else if (amountOfquestion == "3") {
+	document.write(displayQuestSet1(0));
+	document.write(displayQuestSet1(1));
+	document.write(displayQuestSet1(2));
+}
+}
+
+
+// this function will call the function to write each question and write the submit button at the end of the html code
+function displayQuesLoop(n)
+{
+var htmlSubmit;
+ for (i = 0; i < n.length; i++) 
+ {
+    setQuestAmount(n);
+} 
+htmlSubmit ='<input type="submit" value="Submit" onClick="checkQuesSet1('+ n+');">';
+htmlSubmit= htmlSubmit + '</form>';
+document.write(htmlSubmit);
+}
+	
+</script>
+
+<body>
+	<p>Select the Amount of Questions: </p>
+	<form name="quizForm">
+	<select name="questList">
+		<option value="1">1</option>
+ 		<option value="2">2</option>
+  		<option value="3">3</option>
+		<input type="submit" onClick="displayQuesLoop(document.quizForm.questList.value);">
+	</select>
+	</form>
+</body>
+</html>
