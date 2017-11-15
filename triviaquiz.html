@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>Untitled Document</title>
-</head>
+	
 <script language="javascript">
 var questions = new Array(); // new array object for questions
 
@@ -29,14 +29,18 @@ questions[2][3] = "Spiderman";
 questions[2][4] = "Aquaman";
 
 questions[3] = new Array();
-questions[3][0] = "Super man's weakness is ____";
+questions[3][0] = "Super man's weakness is: ";
+
+questions[4] = new Array();
+questions[4][0] = "Batmans alter ego is: ";
 
 
 var answers = new Array(); // new array object for answers
 answers[0]="A";
 answers[1]="C";
 answers[2]="D";
-answers[3]="Kryptonite"
+answers[3]="Kryptonite";
+answers[4]="Bruce Wayne";
 
 //this function will set the html question 
 function displayQuestSet1(n)
@@ -45,27 +49,26 @@ function displayQuestSet1(n)
 var arrayCounter= n ;
 // this variable will change the name of each set of answers to make it possible to distingush each queston set
 var quesCounter= n +1 ;
+//this jf statments for conditon 4&5 will display a different html code for text based questions
+if (n == 3 || n == 4)
+{
 var htmlcode = '<form name="form1">';
-htmlcode = htmlcode + '<b>Question '+ quesCounter+ ':' + questions[arrayCounter][0] + '</b><br>';
+htmlcode = htmlcode + '<b>Question '+ quesCounter+ ': ' + questions[arrayCounter][0] + '</b><input type="text" name="q'+quesCounter +'"><br><br>';
+}
+else
+{
+var htmlcode = '<form name="form1">';
+htmlcode = htmlcode + '<b>Question '+ quesCounter+ ': ' + questions[arrayCounter][0] + '</b><br>';
 htmlcode = htmlcode + '<input type="radio" id="name1" name="q'+ quesCounter+ '" value="A">' + questions[arrayCounter][1] + '<br>';
 htmlcode = htmlcode + '<input type="radio" id="name1" name="q'+ quesCounter+ '" value="B">' + questions[arrayCounter][2] + '<br>';
 htmlcode = htmlcode + '<input type="radio" id="name1" name="q'+ quesCounter+ '" value="C">' + questions[arrayCounter][3] + '<br>';
-htmlcode = htmlcode + '<input type="radio" id="name1" name="q'+ quesCounter+ '" value="D">' + questions[arrayCounter][4] + '<br>';
+htmlcode = htmlcode + '<input type="radio" id="name1" name="q'+ quesCounter+ '" value="D">' + questions[arrayCounter][4] + '<br><br>';
+}
+
 
 return htmlcode;
 }
 	
-//this function will set the html question 
-function displayQuestSet2()
-{
-
-var htmlcode = '<form name="form1">';
-htmlcode = htmlcode + '<b>Question '+ 4 + ':' + questions[4][0] + '</b><br>';
-
-
-return htmlcode;
-}
-
 // this function will check to see if the answers are right 
 function checkQuesSet1(n)
 {
@@ -137,7 +140,98 @@ function checkQuesSet1(n)
 		}
 		window.alert("You got:  " + correct+   " out of 3 right!");
 	}
-
+	//if four questions were asked
+	if (n == 4)
+	{
+		if (document.form1.q1.value == answers[0])
+		{
+			window.alert("Question 1 is right");
+			correct++;
+		}
+		else if(document.form1.q1.value != answers[0])
+		{
+			window.alert("Question 1 is wrong");
+		}
+		if (document.form1.q2.value == answers[1])
+		{
+			window.alert("Question 2 is right");
+			correct++;
+		}
+		else if(document.form1.q2.value != answers[1])
+		{
+			window.alert("Question 2 is wrong");
+		}
+		if (document.form1.q3.value == answers[2])
+		{
+			window.alert("Question 3 is right");
+			correct++;
+		}
+		else if(document.form1.q2.value != answers[2])
+		{
+			window.alert("Question 3 is wrong");
+		}
+		if (document.form1.q4.value == answers[3])
+		{
+			window.alert("Question 4 is right");
+			correct++;
+		}
+		else if(document.form1.q4.value != answers[3])
+		{
+			window.alert("Question 4 is wrong");
+		}
+		window.alert("You got:  " + correct+   " out of 4 right!");
+	}
+	// if five questions were asked
+	if (n == 5)
+	{
+		if (document.form1.q1.value == answers[0])
+		{
+			window.alert("Question 1 is right");
+			correct++;
+		}
+		else if(document.form1.q1.value != answers[0])
+		{
+			window.alert("Question 1 is wrong");
+		}
+		if (document.form1.q2.value == answers[1])
+		{
+			window.alert("Question 2 is right");
+			correct++;
+		}
+		else if(document.form1.q2.value != answers[1])
+		{
+			window.alert("Question 2 is wrong");
+		}
+		if (document.form1.q3.value == answers[2])
+		{
+			window.alert("Question 3 is right");
+			correct++;
+		}
+		else if(document.form1.q2.value != answers[2])
+		{
+			window.alert("Question 3 is wrong");
+		}
+		if (document.form1.q4.value == answers[3])
+		{
+			window.alert("Question 4 is right");
+			correct++;
+		}
+		else if(document.form1.q4.value != answers[3])
+		{
+			window.alert("Question 4 is wrong");
+		}
+		if (document.form1.q5.value == answers[4])
+		{
+			window.alert("Question 5 is right");
+			correct++;
+		}
+		else if(document.form1.q5.value != answers[4])
+		{
+			window.alert("Question 5 is wrong");
+		}
+		window.alert("You got:  " + correct+   " out of 5 right!");
+		
+	}
 }
 
 
@@ -155,12 +249,28 @@ else if (amountOfquestion == "2")
 	document.write(displayQuestSet1(0));
 	document.write(displayQuestSet1(1));
 }
-else if (amountOfquestion == "3") {
+else if (amountOfquestion == "3") 
+{
 	document.write(displayQuestSet1(0));
 	document.write(displayQuestSet1(1));
 	document.write(displayQuestSet1(2));
 }
+else if (amountOfquestion == "4") 
+{
+	document.write(displayQuestSet1(0));
+	document.write(displayQuestSet1(1));
+	document.write(displayQuestSet1(2));
+	document.write(displayQuestSet1(3));
 }
+else if (amountOfquestion == "5") 
+{
+	document.write(displayQuestSet1(0));
+	document.write(displayQuestSet1(1));
+	document.write(displayQuestSet1(2));
+	document.write(displayQuestSet1(3));
+	document.write(displayQuestSet1(4));
+
+}}
 
 
 // this function will call the function to write each question and write the submit button at the end of the html code
@@ -177,6 +287,8 @@ document.write(htmlSubmit);
 }
 	
 </script>
+</head>
+
 
 <body>
 	<p>Select the Amount of Questions: </p>
@@ -185,7 +297,9 @@ document.write(htmlSubmit);
 		<option value="1">1</option>
  		<option value="2">2</option>
   		<option value="3">3</option>
-		<input type="submit" onClick="displayQuesLoop(document.quizForm.questList.value);">
+		<option value="4">4</option>
+		<option value="5">5</option>
+		<input type="button" onClick="displayQuesLoop(document.quizForm.questList.value);">
 	</select>
 	</form>
 </body>
