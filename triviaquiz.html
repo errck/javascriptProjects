@@ -285,6 +285,15 @@ htmlSubmit ='<input type="submit" value="Submit" onClick="checkQuesSet1('+ n+');
 htmlSubmit= htmlSubmit + '</form>';
 document.write(htmlSubmit);
 }
+
+//This function will set the timer on the quiz
+function quizTimer(n)
+{
+	// the alert will notify when the timer started 
+	alert("Timer has started");
+	userTimer= setTimeout("alert('times up!')",n);
+}
+
 	
 </script>
 </head>
@@ -293,13 +302,20 @@ document.write(htmlSubmit);
 <body>
 	<p>Select the Amount of Questions: </p>
 	<form name="quizForm">
+	<select name="timerList">
+		<option value="180000">3 minutes</option>
+ 		<option value="300000">5 minutes</option>
+  		<option value="600000">10 minutes</option><br>
+		<input type="button" value="Set Time" onClick="quizTimer(document.quizForm.timerList.value)">
+	</select>
+	<br>
 	<select name="questList">
 		<option value="1">1</option>
  		<option value="2">2</option>
   		<option value="3">3</option>
 		<option value="4">4</option>
-		<option value="5">5</option>
-		<input type="button" onClick="displayQuesLoop(document.quizForm.questList.value);">
+		<option value="5">5</option><br>
+		<input type="button" value="Start Quiz" onClick="displayQuesLoop(document.quizForm.questList.value);">
 	</select>
 	</form>
 </body>
