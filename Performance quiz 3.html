@@ -3,6 +3,11 @@
 <head>
 <meta charset="utf-8">
 <title>Untitled Document</title>
+<style>
+table{
+    border: 1px solid black;
+}
+</style>
 
 <script language="javascript">
 	
@@ -61,16 +66,24 @@ switch (num)
 <!--set up event to trigger askName function-->
 <body onload="askName()">
 <!--set up all the html images and set each with different agrument in the imginfo() fuction-->
-<img onclick="imgInfo(0)" border="0" src="bluersx.jpg" alt="blue rsx" width="240" height="150">
-<img onclick="imgInfo(1)" border="0" src="blackaspec.jpg" alt="black rsx" width="270" height="150">
-<img onclick="imgInfo(2)" border="0" src="blackrx7.jpg" alt="black rx7" width="200" height="150">
-<img onclick="imgInfo(3)" border="0" src="whiteGTR.jpg" alt="white GTR" width="200" height="150">
-<img onclick="imgInfo(4)" border="0" src="whitesupra.jpg" alt="white supra" width="200" height="150">
-<img onclick="imgInfo(5)" border="0" src="e30.jpg" alt="bmw e30" width="200" height="150">
-<img onclick="imgInfo(6)" border="0" src="goldGTR.jpg" alt="gold GTR" width="200" height="150">
-<img onclick="imgInfo(7)" border="0" src="datsun240.jpg" alt="blue datsun" width="200" height="150">
-<img onclick="imgInfo(8)" border="0" src="toyotagt86.jpg" alt="gray gt86" width="200" height="150">
-<img onclick="imgInfo(9)" border="0" src="pug.jpg" alt="blue" width="200" height="150">
+<table>
+<tr>
+<td><img onclick="imgInfo(0)" border="0" src="bluersx.jpg" alt="blue rsx" width="240" height="150"></td>
+<td><img onclick="imgInfo(1)" border="0" src="blackaspec.jpg" alt="black rsx" width="270" height="150"></td>
+<td><img onclick="imgInfo(2)" border="0" src="blackrx7.jpg" alt="black rx7" width="200" height="150"></td>
+</tr>
+<tr>
+<td><img onclick="imgInfo(3)" border="0" src="whiteGTR.jpg" alt="white GTR" width="200" height="150"></td>
+<td><img onclick="imgInfo(4)" border="0" src="whitesupra.jpg" alt="white supra" width="200" height="150"></td>
+<td><img onclick="imgInfo(5)" border="0" src="e30.jpg" alt="bmw e30" width="200" height="150"></td>
+</tr>
+<tr>
+<td><img onclick="imgInfo(6)" border="0" src="goldGTR.jpg" alt="gold GTR" width="200" height="150"></td>
+<td><img onclick="imgInfo(7)" border="0" src="datsun240.jpg" alt="blue datsun" width="200" height="150"></td>
+<td><img onclick="imgInfo(8)" border="0" src="toyotagt86.jpg" alt="gray gt86" width="200" height="150"></td>
+<td><img onclick="imgInfo(9)" border="0" src="pug.jpg" alt="blue" width="200" height="150"></td>
+</tr>
+</table>
 
 
 </body>

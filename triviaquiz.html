@@ -229,7 +229,14 @@ function checkQuesSet1(n)
 		{
 			window.alert("Question 5 is wrong");
 		}
+		// this will set a cookie for the score
+		setScoreCookie(correct);
 		window.alert("You got:  " + correct+   " out of 5 right!");
+		// this will display each cookie that was made by the user
+		alert(window.cookie);
+		
+		
+		
 		
 	}
 }
@@ -293,14 +300,40 @@ function quizTimer(n)
 	alert("Timer has started");
 	userTimer= setTimeout("alert('times up!')",n);
 }
+// This function will set the data for a cookie
+function setCookie(cookName, cookValue, cookPath, cookExpire)
+{  //This will set the value of a cookie with the escape function to get around directory problems
+   cookValue = escape(cookValue);
+	// this  if statment will set the expiration date for the cookie if not specified
+   if (cookExpire == "")
+   {
+      var nowDate = new Date();
+      nowDate.setMonth(nowDate.getMonth() + 6);
+      cookExpire = nowDate.toGMTString();
+   }
+	// this if statement will write the path if the path argument is left blank
+   if (cookPath != "")
+   {
+      cookPath = ";Path=" + cookPath;
+   }
+   document.cookie = cookName + "=" + cookValue + 
+      ";expires=" + cookExpires + cookPath;
+}
+// this function will set the cookie 
+function setScoreCookie(n)
+{
+	// this variable will recieve the score from the paramater
+	var score= n;
 
-	
+	// this will set the cookie name to score and the current score.
+    setCookie("score", score,"","");
+}
 </script>
 </head>
 
 
 <body>
-	<p>Select the Amount of Questions: </p>
+	<p>Select the Amount of time </p>
 	<form name="quizForm">
 	<select name="timerList">
 		<option value="180000">3 minutes</option>
@@ -308,7 +341,7 @@ function quizTimer(n)
   		<option value="600000">10 minutes</option><br>
 		<input type="button" value="Set Time" onClick="quizTimer(document.quizForm.timerList.value)">
 	</select>
-	<br>
+	<p>Select the Amount of Questions: </p>
 	<select name="questList">
 		<option value="1">1</option>
  		<option value="2">2</option>

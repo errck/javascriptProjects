@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<style>
+	input{margin-bottom:1em;}
+	select{margin-bottom:1em;}
+</style>
+</head>
+<!-- these ekements will be used to set thhe user info-->
+<body>
+<h1 align="center">Personal information Form</h1>
+<div name= "SeatInfo"></div>
+<form id="perInfoForm" align="center">
+Firstname:<input name="fname" type="text" required>
+<br>
+Lastname:<input name="lname" type="text"  required>
+<br>
+email:<input type="email" >
+<br>
+Phone Number:<input name="phone" type="text" required >
+<br>
+Birthdate:<input name="Bday" type="date" required >
+<br>
+Birth Country:<select name="country"  required>
+<option value="US">United States</option> 
+<option value="MX" selected>Mexico</option>
+<option value="CAN">Canada</option>
+</select>
+<br>
+Card Number:<input name="cardinf" type="number"  required>
+Card Exp:<input type="date"  required>
+<br>
+<!--when the user clicks submit it will laucnt the writeprint function to write the html on the print page-->
+<input name="submit" type="submit" onClick="window.top.writePrint();">
+
+
+</form>
+</body>
+</html>
